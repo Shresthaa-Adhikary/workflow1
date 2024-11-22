@@ -8,11 +8,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set output
+      - name: Set the value
         id: step1
         run: |
-          echo "::set-output name=example_output::Hello from Step 1"
+          echo "actionstate=yellow" >> "$GITHUB_ENV"
       
-      - name: Use output in next step
+      - name: Use the value
         run: |
-          echo "The output from the previous step was ${{ steps.step1.outputs.example_output }}"
+          printf '%s\n'"$actionstate"
