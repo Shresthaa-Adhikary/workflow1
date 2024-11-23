@@ -15,4 +15,4 @@ jobs:
       
       - name: Use the value
         run: |
-          printf '%s\n'"$actionstate"
+          echo "$actionstate"
