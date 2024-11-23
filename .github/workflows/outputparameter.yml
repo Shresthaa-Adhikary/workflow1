@@ -1,0 +1,14 @@
+name: output parameter
+on: workflow_dispatch
+
+jobs:
+  job1:
+    runs-on: ubuntu latest
+    steps:
+      - name: set output parameter
+        id: step1
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+      - name: use output paramter
+        env:
+          COLOR: ${{steps.step1.outputs.SELECTED_COLOR}}
+        run: echo "the selected is $COLOR"
