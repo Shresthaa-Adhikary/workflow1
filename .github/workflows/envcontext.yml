@@ -1,0 +1,11 @@
+name: env context workflow
+on: workflow_dispatch
+env:
+  DAY_OF_WEEK: Tuesday
+jobs:
+  env_context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing env context
+        if: ${{ env.DAY_OF_WEEK=='Tuesday' }}
+        run: echo "It is $DAY_OF_WEEK"
