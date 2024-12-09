@@ -1,4 +1,4 @@
-name: env context workflow
+name: env context and github context workflow
 on: workflow_dispatch
 env:
   DAY_OF_WEEK: Tuesday
@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: github context
-        run: echo " The workflow- ${{ github.workflow1 }} "
+        run: echo " The workflow- ${{ github.repository }} "
