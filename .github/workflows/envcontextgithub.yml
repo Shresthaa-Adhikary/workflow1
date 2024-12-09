@@ -9,3 +9,8 @@ jobs:
       - name: testing env context
         if: ${{ env.DAY_OF_WEEK=='Tuesday' }}
         run: echo "It is $DAY_OF_WEEK"
+  test2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: github context
+        run: echo " The workflow- ${{ github.workflow1 }} "
