@@ -1,0 +1,25 @@
+name: include in strategy matrix
+on:
+  workflow_dispatch
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        fruit: [apple,pear]
+        animal: [cat,dog]
+        include:
+          - color: green
+          - color: pink
+            animal: cat
+          - fruit: apple
+            shape: circle
+          - fruit: banana
+          - fruit: banana
+            animal: cat
+    steps:
+      - name: display combination
+        run: |
+          echo "test combination"
+    
