@@ -16,5 +16,8 @@ jobs:
            - os: windows-latest
              version: 16
      runs-on: ${{ matrix.os }}
+     steps:
+       - name: test exclude
+         run: echo "testing exclude"
     
     
