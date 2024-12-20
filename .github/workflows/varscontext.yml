@@ -2,10 +2,6 @@ name: vars context in github
 on:
   workflow_dispatch:
 
-env:
-  # Use GitHub Actions environment variables correctly if needed
-  env_var: ${{ vars.ENV_CONTEXT_VAR }}
-
 jobs:
   display-variables:
     runs-on: ubuntu-latest
@@ -13,6 +9,6 @@ jobs:
     steps:
     - name: Use variables
       run: |
-        echo "variable from shell environment : $env_var"
-        echo "job name is $name"
+        echo "variable from shell environment : ${{ vars.ENV_CONTEXT_VAR }}"
+        echo "job name is ${{ job.name }}"
 
