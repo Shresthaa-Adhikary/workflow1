@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     name: ${{ vars.JOB_NAME }}
     steps:
-    - name: Use variables
+    - name: Use variables ${{ vars.ENV_CONTEXT_VAR }} 
       run: |
         echo "variable from shell environment : ${{ vars.ENV_CONTEXT_VAR }}"
-        echo "job name is ${{ job.name }}"
+        echo "job name is ${{ vars.JOB_NAME }}"
 
