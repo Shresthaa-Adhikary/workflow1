@@ -8,27 +8,11 @@ env:
 
 jobs:
   display-variables:
+    runs-on: ubuntu-latest
     name: ${{ vars.JOB_NAME }}
-    if: ${{ vars.USE_VARIABLES == 'true' }}
-    runs-on: ${{ vars.RUNNER }}
-    environment: ${{ vars.ENVIRONMENT_STAGE }}
     steps:
     - name: Use variables
       run: |
-        echo "repository variable : $REPOSITORY_VAR"
-        echo "overridden variable : $OVERRIDE_VAR"
         echo "variable from shell environment : $env_var"
-      env:
-        REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
-        ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
-        OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
-        env_var: ${{ vars.ENV_CONTEXT_VAR }}  # Make sure this is set correctly
-
-    - name: ${{ vars.HELLO_WORLD_STEP }}
-      if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
-      uses: actions/hello-world-javascript-action@main
-      with:
-        who-to-greet: ${{ vars.GREET_NAME }}
-
-        
+        echo "job name is $name"
 
