@@ -1,0 +1,14 @@
+name: print node version 2
+on:
+  workflow:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      - name: build docker image
+        run: docker build -t app .
+      - name: run container
+        run: docker run -d --name c2 app
