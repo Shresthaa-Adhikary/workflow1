@@ -9,6 +9,8 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v4
       - name: build docker image
-        run: docker build -t app .
+        run: |
+           docker build -t app .
+           docker images
       - name: run container
         run: docker run -d --name c2 app
