@@ -1,6 +1,6 @@
 name: print node version 2
 on:
-  workflow:
+  workflow_dispatch:
 
 jobs:
   build:
