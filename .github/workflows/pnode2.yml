@@ -1,4 +1,4 @@
-name: print node version 2
+name: print node version2 
 on:
   workflow_dispatch:
 
@@ -12,5 +12,5 @@ jobs:
         run: |
            docker build -t app .
            docker images
-      - name: run container
+      - name: run container and print node version
         run: docker run app node --version
