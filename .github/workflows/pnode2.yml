@@ -13,4 +13,4 @@ jobs:
            docker build -t app .
            docker images
       - name: run container
-        run: docker run -d --name c2 app
+        run: docker run app node --version
